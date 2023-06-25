@@ -1,0 +1,61 @@
+# Describing the Composer API
+openapi: "3.0.0"
+info:
+  title: Composer API
+  version: 1.0.0
+paths:
+  /fruits:
+    get:
+      tags:
+        - Composers
+      description: API for returning a list of composer documents
+      summary: returns a list of composers documents
+      responses:
+        '200':
+          description: Composer documents
+        '500':
+          description: Server Exception
+        '501':
+          description: MongoDB Exception
+    post:
+      tags:
+        - Composer
+      description: API for adding a new composer object
+      summary: Creates a document for composer
+      requestBody:
+        description: Composer information
+        content:
+          application/json:
+            schema:
+              required:
+                - type
+              properties:
+                type:
+                  type: string
+      responses:
+        '200':
+          description: Composer added
+        '500':
+          description: Server Exception
+        '501':
+          description: MongoDB Exception
+  /fruits/{id}:
+    get:
+      tags:
+        - Composer
+      description: API for returning a Composer document
+      summary: returns a Composer document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Composer document Id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Composer document in JSON format
+        '500':
+          description: Server Exception
+        '501':
+          description: MongoDB Exception

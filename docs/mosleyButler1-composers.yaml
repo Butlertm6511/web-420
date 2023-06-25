@@ -1,0 +1,28 @@
+openapi: "3.0.0"
+info:
+  "title": Composers API
+  version:1.0.0
+path:
+  /create
+    post:
+      tag:
+        -YAML Exaples
+      description: create new api for composer. 
+      summary: Create a new document for MongoDB document
+      request body:
+        description: object Information
+          content:
+            content:
+            application/json:
+              schema:
+                -userName
+              properties:
+              username:
+              type: string
+      responses:
+        '200':
+          description: ComposerDocument
+        "500" :
+          description : Server Document
+        "501" : 
+          description : MongoDB Exception

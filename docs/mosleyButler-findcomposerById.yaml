@@ -1,0 +1,25 @@
+openapi: "3.0.0"
+info:
+  "title": Composers API
+  version: 1.0.0
+path:
+  /find/{id}:
+    get:
+      tag:
+        -composers
+      description: create api for composer. allow client to get, post, and delete
+      summary: returns a single document for composer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Uses id to filter the collection of composers
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ComposerDocument
+        "500" :
+          description : Server Document
+        "501" : 
+          description : MongoDB Exception
